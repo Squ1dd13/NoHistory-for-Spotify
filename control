@@ -1,0 +1,9 @@
+Package: com.squ1dd13.nohistoryspoti
+Name: NoHistory for Spotify
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Removes the search history from the Spotify app. My first tweak for an app!
+Maintainer: Squ1dd13
+Author: Squ1dd13
+Section: Tweaks
