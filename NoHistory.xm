@@ -67,11 +67,15 @@ if([arg1 isEqualToString:@"8.4.22.515"])
 //Now 8.4.24.506 is out, we need to repeat that bit of code with the new version number.
 
 %hook UITableViewLabel
-
 -(void)setText:(NSString *)arg1{
-if([arg1 isEqualToString:@"8.4.24.506"])
+
+if([arg1 isEqualToString:@"8.4.22.515"])
 {
-%orig(@"8.4.22.515/NoHistory 1.3.1");
+%orig(@"8.4.22.515/NoHistory 1.3");
+} 
+else if([arg1 isEqualToString:@"8.4.24.506"])
+{
+%orig(@"8.4.24.506/NoHistory 1.3.1");
 } else {
 %orig;
 }
