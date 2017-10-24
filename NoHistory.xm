@@ -63,3 +63,15 @@ if([arg1 isEqualToString:@"8.4.22.515"])
 }
 }
 %end
+
+%hook UITableViewLabel
+
+-(void)setText:(NSString *)arg1{
+if([arg1 isEqualToString:@"8.4.24.506"])
+{
+%orig(@"8.4.22.515/NoHistory 1.3");
+} else {
+%orig;
+}
+}
+%end
