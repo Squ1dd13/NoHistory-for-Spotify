@@ -5,7 +5,7 @@ include /var/theos/makefiles/common.mk
 
 TWEAK_NAME = NoHistory
 NoHistory_CFLAGS = -fobjc-arc
-NoHistory_FILES = Tweak.xm
+NoHistory_FILES = NoHistoySpoti.xm
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
