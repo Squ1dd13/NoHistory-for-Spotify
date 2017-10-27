@@ -2,7 +2,7 @@ static BOOL enable;
 static NSDictionary *preferences = nil;
 
 %hook SPTSearchHistory
-
+//Older versions of Spotify
 - (unsigned long long)numberOfSavedSearchStrings {
     if (enable) {
         return 0;
@@ -15,8 +15,7 @@ static NSDictionary *preferences = nil;
 @end
 
 %hook EXP_SPTSearchRecentsItemComponentView
-
-
+//Hide the actual history - Newer versions
 -(void)layoutSubviews{
     if (enable) {
         self.hidden = YES;
@@ -31,6 +30,8 @@ static NSDictionary *preferences = nil;
 
 %hook EXP_SPTSearchRecentsClearAllHubComponentView
 
+//Hide the clear all button, because there is no history to clear
+
 -(void)layoutSubviews{
     if (enable) {
         self.hidden = YES;
@@ -39,14 +40,14 @@ static NSDictionary *preferences = nil;
 }
 %end
 %hook GLUELabel
-
+//Detect and hide the label that says "Recent searches"
 -(void)setText:(NSString *)arg1{
     if (enable){
         if([arg1 isEqualToString:@"Recent searches"])
         {
             %orig(@" ");
         } else {
-            %orig;
+            %orig;      //If it doesn't say "Recent searches", do nothing
         }
     }
 }
